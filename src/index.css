@@ -11,3 +11,23 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.wrapper{
+  padding: 15px;
+  padding-top: 4rem;
+  margin: 0 auto;
+  max-width: 600px;
+  min-height: 100vh;
+}
+
+.done {
+  text-decoration: line-through;
+  text-decoration-color: hsl(217, 71%, 53%);
+}
+.delete {
+  transition: .1s linear all;
+}
+.delete:hover{
+  transform: scale(1.04);
+}
+
