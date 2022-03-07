@@ -18,7 +18,7 @@ export default function AddTodo({onCreate}) {
     border: "1px solid #ccc",
     borderRadius: "4px",
     userSelect: "none",}} value = {value} onChange = {ev => setValue(ev.target.value)} />
-        <button style = {{height:'35px', outline:'none'}} className="button is-link small" type='submit'>Добавить</button>
+        <button style = {{height:'35px', outline:'none', fontWeight: '700'}} className="button is-link small" type='submit'>Добавить</button>
     </form>
   )
 }
