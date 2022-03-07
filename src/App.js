@@ -3,26 +3,22 @@ import TodoList from "./components/TodoList";
 import 'bulma/css/bulma.min.css';
 import {useState} from 'react';
 import Context from './Context';
-// import AddTodo from './components/AddTodo.jsx';
+import AddTodo from './components/AddTodo.jsx';
 import axios from 'axios';
 import Loader from './Loader'
 import Modal from './Modal/Modal'
 
-const AddTodo = React.lazy(() => new Promise(resolve => {
-  setTimeout(() => {
-    resolve(import ('./components/AddTodo'))
-  }, 3000);
-}))
+// const AddTodo = React.lazy(() => new Promise(resolve => {
+//   setTimeout(() => {
+//     resolve(import ('./components/AddTodo'))
+//   }, 3000);
+// }))
 
 function App() {
 
-  let [todos, setTodos] = useState([
-    // {id: 1, completed: false, title: 'Купить хлеб'},
-    // {id: 2, completed: false, title: 'Купить масло'},
-    // {id: 3, completed: false, title: 'Купить молоко'},
-    // {id: 4, completed: false, title: 'Купить помидоры'},
-
-  ])
+  let [todos, setTodos] = useState(
+    JSON.parse(localStorage.getItem('todos'))
+  )
   const [loading, setLoading] = useState(true)
   // useEffect(() => {
   //   axios.get('https://jsonplaceholder.typicode.com/todos?_limit=5')
@@ -59,6 +55,9 @@ function App() {
         completed: false
     }]))
   }
+  useEffect(()=>{
+    localStorage.setItem('todos', JSON.stringify(todos))
+  }, [todos])
 
   return (
     <Context.Provider value = {{deleteTodo}}>
@@ -66,9 +65,9 @@ function App() {
       <h1 className='title is-1' style={{textAlign: 'center', marginBottom:'2.5rem'}}>Список задач</h1>
 
       {/* <Modal/> */}
-      <React.Suspense fallback={<Loader/>}>
-        <AddTodo onCreate = {addTodo}/>
-      </React.Suspense>
+      {/* <React.Suspense fallback={<Loader/>}> */}
+      <AddTodo onCreate = {addTodo}/>
+      {/* </React.Suspense> */}
       <hr/>
 
       {/* {loading && <Loader/>} */}

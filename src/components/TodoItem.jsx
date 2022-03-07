@@ -12,17 +12,27 @@ const styles = {
     borderRadius: "4px",
     marginBottom: ".5rem",
     userSelect: "none",
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
+    whiteSpace: 'nowrap',
+   
   },
   input: {
     marginRight: "10px",
     cursor: "pointer",
     
+    
   },
 
   label: {
+    maxWidth: '500px',
     display: "flex",
     cursor: "pointer",
     alignItems: "center",
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
+    whiteSpace: 'nowrap',
+    
     
   },
 };
