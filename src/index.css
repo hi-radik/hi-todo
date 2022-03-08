@@ -77,3 +77,7 @@ input:focus:-ms-input-placeholder      {opacity: 0; transition: opacity 0.15s ea
     transform: rotate(360deg);
   }
 }
+
+.button{
+  transition: .1s linear all;
+}
